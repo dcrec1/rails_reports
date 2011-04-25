@@ -6,4 +6,8 @@ Gem::Specification.new do |s|
   s.description = "Insert RailsReports description."
   s.files = Dir["{app,lib,config}/**/*"] + ["MIT-LICENSE", "Rakefile", "Gemfile", "README.rdoc"]
   s.version = "0.0.1"
+
+  s.add_dependency(%q<haml>, [">= 0"])
+
+  s.add_development_dependency('rspec-rails', '~> 2.5')
 end

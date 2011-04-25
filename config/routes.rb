@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
-  resources :reports
-  match '/reports' => "application#index"
+  scope "reports", :module => :rails_reports, :as => "rails_reports" do
+    root :to => "main#index"
+  end
 end
