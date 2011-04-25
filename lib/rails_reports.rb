@@ -8,3 +8,8 @@ module RailsReports
     end
   end
 end
+
+Method.send :define_method, :arguments do
+  File.open(File.join(Rails.application.paths.app.models.first, "#{receiver.class.to_s.underscore}.rb")).read.detect { |line| line =~ /def #{name}(.*)$/ }
+  $1.tr('()','').split(',').map{|p| p.gsub(/=.*/, '')}.reject(&:blank?).map(&:strip)
+end
